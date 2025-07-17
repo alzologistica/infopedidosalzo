@@ -45,15 +45,16 @@
     .icon {
     width: 160px;
     height: 160px;
-    margin: 0 auto 12px;
+    margin: 0 auto 8px;
     background: url('https://i.postimg.cc/s2q0ptnz/alzo-png.png') no-repeat center/contain;
     border-radius: 50%;
     }
     
     h2 {
-      font-size: 28px;
-      margin-bottom: 28px;
+      font-size: 30px;
+      margin: 0 0 50px;
       font-weight: 600;
+      color: 	#00b7ff;
     }
 
     .input-group {
