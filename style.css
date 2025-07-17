@@ -1,0 +1,104 @@
+
+    :root {
+      --bg-color: #e0f7ff;
+      --text-color: #333;
+      --box-bg: #ffffff;
+      --box-shadow: rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: var(--text-color);
+    }
+
+    .login-box {
+      background: var(--box-bg);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px var(--box-shadow);
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon {
+    width: 160px;
+    height: 160px;
+    margin: -48px auto 32px;
+    background: url('https://i.postimg.cc/s2q0ptnz/alzo-png.png') no-repeat center/contain;
+    border-radius: 50%;
+  }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 28px;
+      font-weight: 600;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px 40px 12px 40px;
+      font-size: 19px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      background-color: transparent;
+      color: inherit;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #888;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: linear-gradient(to right, #00bfff, #1a75ff);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #0099cc, #005ce6);
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: left;
+    }
