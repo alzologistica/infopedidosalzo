@@ -2,29 +2,38 @@ async function consultar() {
   const codigo = document.getElementById("codigo").value.trim();
   const resultado = document.getElementById("resultado");
   resultado.innerHTML = "";
+  resultado.classList.remove("resultado-activo");
 
   if (!codigo) {
     resultado.innerHTML = "<p>Ingrese un código válido.</p>";
+    resultado.classList.add("resultado-activo");
     return;
   }
 
   try {
-    const url = `https://script.google.com/macros/s/AKfycbxHOKnrAEUKuxKA4FSwAsF-V3G8grQ7fy-hM_NVMEwA9lse7VMjEYiVqR2rx-X-HT8N/exec?codigo=${encodeURIComponent(codigo)}`;
+    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRd7JnQO1Le0zrFoTtwzm3DpuUJh-h4GxfX8F3a2RD7H69pMufbZPgILKVX6NuiT6RO7LbVKG76XAdh/pub?gid=0&single=true&output=tsv";
     const response = await fetch(url);
-    const data = await response.json();
+    const text = await response.text();
 
-    if (data.error) {
-      resultado.innerHTML = `<p><strong>Error:</strong> ${data.error}</p>`;
-    } else {
+    const lines = text.split("\n").map(line => line.split("\t"));
+    const data = lines.slice(1);
+    const fila = data.find(row => row[0] === codigo);
+
+    if (fila) {
       resultado.innerHTML = `
-        <p><strong>Cliente:</strong> ${data.cliente || '-'}</p>
-        <p><strong>Pedido:</strong> ${data.pedido}</p>
-        <p><strong>Fecha de entrega:</strong> ${data.fecha}</p>
+        <p><strong>Cliente:</strong> ${fila[3] || '-'}</p>
+        <p><strong>Pedido:</strong> ${fila[1]}</p>
+        <p><strong>Fecha de entrega:</strong> ${fila[2]}</p>
       `;
+    } else {
+      resultado.innerHTML = "<p><strong>Error:</strong> Código de cliente no encontrado.</p>";
     }
-  } catch (error) {
-    resultado.innerHTML = `<p><strong>Error:</strong> ${error.message}</p>`;
-    console.error(error);
+
+    resultado.classList.add("resultado-activo");
+  } catch (err) {
+    resultado.innerHTML = "<p><strong>Error:</strong> No se pudo acceder a la hoja.</p>";
+    resultado.classList.add("resultado-activo");
+    console.error(err);
   }
 }
 

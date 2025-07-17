@@ -33,6 +33,8 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 0.8s ease-out forwards;
+      margin-top: 100px;
+      margin-bottom: 50px;
     }
 
     @keyframes fadeIn {
@@ -42,20 +44,21 @@
       }
     }
 
-    .icon {
-    width: 160px;
-    height: 160px;
-    margin: 0 auto 8px;
-    background: url('https://i.postimg.cc/s2q0ptnz/alzo-png.png') no-repeat center/contain;
-    border-radius: 50%;
-    }
-    
-    h2 {
-      font-size: 30px;
-      margin: 0 0 50px;
-      font-weight: 600;
-      color: 	#00b7ff;
-    }
+.icon {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 0px;
+  background: url('https://i.postimg.cc/s2q0ptnz/alzo-png.png') no-repeat center/contain;
+  border-radius: 50%;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #00b7ff;
+  margin: 0 0 30px; 
+  padding-top: 8px;
+}
 
     .input-group {
       position: relative;
@@ -99,8 +102,93 @@
       background: linear-gradient(to right, #0099cc, #005ce6);
     }
 
-    #resultado {
-      margin-top: 20px;
-      font-size: 20px;
-      text-align: left;
-    }
+#resultado {
+  margin-top: 20px;
+}
+
+.resultado-activo {
+  background-color: #f0faff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+#contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 10px;
+}
+
+.contact-link {
+  font-size: 18px;
+  color: #00b7ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+  margin: 0;
+}
+
+.contact-link h5 {
+  margin: 0px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.contact-link i {
+  font-size: 20px;
+}
+
+.contact-link:hover {
+  color: #128C7E;
+}
+
+#contacto-titulo {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#contacto-titulo h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #333;
+}
+
+#contacto-titulo span {
+  font-size: 22px;
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+.titulo-contacto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight:900;
+  margin: 24px 0 12px;
+}
+
+.flecha {
+  font-size: 20px;
+  animation: bounce 1s infinite;
+  color: #1a75ff;
+}
+
+#contacto .contact-link:not(:last-child) {
+  margin-bottom: 0;
+}
