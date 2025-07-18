@@ -43,3 +43,34 @@ document.addEventListener("DOMContentLoaded", function () {
     boton.addEventListener("click", consultar);
   }
 });
+
+
+ function toggleWhatsappMenu() {
+    const menu = document.getElementById("whatsapp-menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  }
+
+
+  function mostrarPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function cerrarPopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// Mostrar el pop-up automáticamente al cargar
+window.addEventListener("DOMContentLoaded", mostrarPopup);
+
+document.addEventListener("click", function (e) {
+  const popup = document.getElementById("popup");
+  const contenido = document.querySelector(".popup-content");
+
+  if (
+    popup.style.display === "flex" &&
+    !contenido.contains(e.target) &&
+    !e.target.classList.contains("popup-close")
+  ) {
+    cerrarPopup();
+  }
+});
